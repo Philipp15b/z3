@@ -90,9 +90,9 @@ static_matrix<T, X>::static_matrix(static_matrix const &A, unsigned * /* basis *
     m_vector_of_row_offsets(A.column_count(), numeric_traits<T>::zero()) {
     unsigned m = A.row_count();
     init_row_columns(m, m);
-    for (; m-- > 0; ) 
-        for (auto & col : A.m_columns[m]) 
-            set(col.var(), m, A.get_value_of_column_cell(col));
+    for (; m-- > 0; )
+        for (auto & col : A.m_columns[m])
+            set(col.var(), m, A.get_column_cell(col));
 }
 
 template <typename T, typename X> void static_matrix<T, X>::clear() {
